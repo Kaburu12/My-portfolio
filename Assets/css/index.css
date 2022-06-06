@@ -133,3 +133,14 @@ h1{
 .my-services{
     text-align: center;
 }
+
+#contact{
+    display: flex;
+    justify-content: center;
+}
+
+.social{
+    margin: 20px;
+    width: 50px;
+    cursor: pointer;
+}

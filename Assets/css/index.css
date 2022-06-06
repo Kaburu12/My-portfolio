@@ -6,6 +6,7 @@ body{
 
 nav #top-nav {
     display: flex;
+    margin-left: 10px;
 }
 
 #logo {
@@ -23,7 +24,7 @@ div ul li a {
     color: rgb(252,48,75);
     font-weight: 900;
     font-size: x-large;
-    padding-right: 90px;
+    padding-right: 60px;
     padding-top: 20px;
 }
 
@@ -95,7 +96,7 @@ h1{
     text-align: center;
     background-color:#DAD3D3 ;
     padding: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .slideshow-cont {
@@ -153,4 +154,14 @@ footer{
 
 span{
     color:  rgb(252,48,75);
+}
+
+#btn-2{
+    background-color: rgb(252,48,75);
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    color: #fff;
+    border-radius: 30px;
+    border: rgb(252,48,75);
+    cursor: pointer;
 }

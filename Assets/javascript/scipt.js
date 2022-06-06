@@ -20,3 +20,21 @@ function showSlides(n) {
     }
     slides[slideIndex - 1].style.display = "block";
 }
+
+//onclick on the phone icon
+const input = document.getElementById('call');
+  
+function onClickAlert() {
+  alert("CALL : +254796225100");
+}
+
+input.addEventListener('click', onClickAlert);
+
+//onclick on the email
+const emailIcon = document.getElementById('email');
+  
+function onClickAlert() {
+  alert("EMAIL : kabururm@gmail.com");
+}
+
+emailIcon.addEventListener('click', onClickAlert);

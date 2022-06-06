@@ -144,3 +144,13 @@ h1{
     width: 50px;
     cursor: pointer;
 }
+
+footer{
+    background-color:  #DAD3D3;
+    text-align: center;
+    padding: 30px;
+}
+
+span{
+    color:  rgb(252,48,75);
+}

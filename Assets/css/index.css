@@ -73,3 +73,25 @@ header img{
 #btn-2{
     margin-top: 30px;
 }
+
+#hr{
+    background-color: rgb(252,48,75);
+    padding: 1px;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 20px;
+}
+
+h1{
+    text-align: center;
+}
+
+#about{
+    display: flex;
+    justify-content: center;
+}
+
+#h3{
+    margin: 0px 80px 0px 80px;
+    text-align: center;
+}

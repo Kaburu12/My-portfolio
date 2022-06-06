@@ -21,12 +21,15 @@ div .nav-right {
 
 div ul li a {
     text-decoration: none;
-    color: white;
+    color: rgb(252,48,75);
     font-weight: 900;
     font-size: x-large;
     padding-right: 90px;
     padding-top: 20px;
-    text-shadow: 10px 10px 10px black;
+}
+
+div ul li a:hover{
+    color:#000;
 }
 
 div ul li {
@@ -36,10 +39,37 @@ div ul li {
 .subscription-btn {
     padding: 5px 20px 5px 20px;
     color: rgb(200, 42, 69);
-    box-shadow: 2px 2px grey;
     border-radius: 20px;
     font-size: 20px;
     cursor: pointer;
 	border-color: rgb(252,48,75);
 	background-color: #ffff;
+}
+
+input:hover{
+    color:#fff;
+    background-color:#2B2B2B
+}
+
+header img{
+    border-radius: 50%;
+    max-width: 100%;
+	width: 500px;
+	height: auto;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+#header-container{
+    display: flex;
+    
+}
+
+#header-content{
+    margin-top: 80px;
+    margin-left: 100px;
+}
+
+#btn-2{
+    margin-top: 30px;
 }

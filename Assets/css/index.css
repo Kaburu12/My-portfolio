@@ -4,3 +4,42 @@ body{
 	font-family: 'Jost', sans-serif;
 	scroll-behavior: smooth;
 }
+
+nav #top-nav {
+    display: flex;
+}
+
+#logo {
+    width: 150px;
+    height: 150px;
+    padding-right: 100px;
+}
+
+div .nav-right {
+    margin-top: 30px;
+}
+
+div ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 900;
+    font-size: x-large;
+    padding-right: 90px;
+    padding-top: 20px;
+    text-shadow: 10px 10px 10px black;
+}
+
+div ul li {
+    display: inline;
+}
+
+.subscription-btn {
+    padding: 5px 20px 5px 20px;
+    color: rgb(200, 42, 69);
+    box-shadow: 2px 2px grey;
+    border-radius: 20px;
+    font-size: 20px;
+    cursor: pointer;
+	border-color: rgb(252,48,75);
+	background-color: #ffff;
+}

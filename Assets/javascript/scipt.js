@@ -22,13 +22,13 @@ function showSlides(n) {
 }
 
 //onclick on the phone icon
-const input = document.getElementById('call');
+const input = document.getElementsByClassId('call');
   
-function onClickAlert() {
+function click1() {
   alert("CALL : +254796225100");
 }
 
-input.addEventListener('click', onClickAlert);
+input.addEventListener('click', click1);
 
 //onclick on the email
 const emailIcon = document.getElementById('email');

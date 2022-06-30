@@ -86,6 +86,12 @@ h1{
     text-align: center;
 }
 
+#git{
+    padding-top: 20px;
+    margin-right: 10px;
+    margin-left:10px ;
+}
+
 #about{
     display: flex;
     justify-content: center;
@@ -164,4 +170,9 @@ span{
     border-radius: 30px;
     border: rgb(252,48,75);
     cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-2{
+    margin-top: 40px;
 }

@@ -32,9 +32,8 @@ input.addEventListener('click', click1);
 
 //onclick on the email
 const emailIcon = document.getElementById('email');
-  
-function onClickAlert() {
-  alert("EMAIL : kabururm@gmail.com");
-}
+emailIcon.addEventListener("click", click2)
 
-emailIcon.addEventListener('click', onClickAlert);
+function click2() {
+  alert("My Email : Kabururm@gmail.com")
+}

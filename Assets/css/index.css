@@ -36,7 +36,7 @@ div ul li {
     display: inline;
 }
 
-.download-btn {
+.hire-btn {
     padding: 5px 20px 5px 20px;
     color: rgb(200, 42, 69);
     border-radius: 20px;
@@ -90,6 +90,7 @@ h1{
     padding-top: 20px;
     margin-right: 10px;
     margin-left:10px ;
+    font-size:55px
 }
 
 #about{
@@ -176,3 +177,107 @@ span{
 .btn-2{
     margin-top: 40px;
 }
+
+
+@media screen and (max-width: 650px) {
+
+div .nav-right {
+    margin-top: 30px;
+}
+
+div ul li a {
+    text-decoration: none;
+    color: rgb(252,48,75);
+    font-weight: 900;
+    font-size: 15px;
+    padding-right: 80px;
+    padding-top: 20px;
+}
+
+
+#btn-2{
+    background-color: rgb(252,48,75);
+    font-size: 10px;
+    padding: 7px 7px 7px 7px;
+    color: #fff;
+    border-radius: 30px;
+    border: rgb(252,48,75);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.hire-btn {
+    padding: 5px 10px 5px 10px;
+    color: rgb(200, 42, 69);
+    border-radius: 20px;
+    font-size: 15px;
+    cursor: pointer;
+	border-color: rgb(252,48,75);
+	background-color: #ffff;
+    margin-top: 20px;
+}
+
+.social{
+    margin: 20px;
+    width: 30px;
+    cursor: pointer;
+}
+
+#git{
+    width: 30px;
+    font-size:35px
+}
+
+}
+
+@media screen and (min-width: 1000px) {
+
+    div .nav-right {
+        margin-top: 30px;
+    }
+    
+    div ul li a {
+        text-decoration: none;
+        color: rgb(252,48,75);
+        font-weight: 900;
+        font-size: 20px;
+        padding-right: 60px;
+        padding-top: 20px;
+    }
+    
+    
+    #btn-2{
+        background-color: rgb(252,48,75);
+        font-size: 20px;
+        padding: 7px 20px 7px 20px;
+        color: #fff;
+        border-radius: 30px;
+        border: rgb(252,48,75);
+        cursor: pointer;
+        text-decoration: none;
+    }
+    
+    .hire-btn {
+        padding: 5px 15px 5px 15px;
+        color: rgb(200, 42, 69);
+        border-radius: 20px;
+        font-size: 20px;
+        cursor: pointer;
+        border-color: rgb(252,48,75);
+        background-color: #ffff;
+        margin-top: 20px;
+    }
+    
+    .social{
+        margin: 20px;
+        width: 40px;
+        cursor: pointer;
+    }
+    
+    #git{
+        width: 30px;
+        font-size:45px;
+        margin-bottom: 5px;
+    }
+    
+    }

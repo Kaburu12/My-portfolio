@@ -112,6 +112,12 @@
         <!--footer-->
         <footer>
            <span >Designed By : Michael Kaburu</span> 
+          <div id="time"> <p id="dateTime"></p></div>
+            <script> 
+            const today= new Date().toLocaleString('en-US', { timeZone: 'EAT' });
+            document.getElementById("dateTime").innerHTML = today;
+           </script>
+
         </footer>
         <script src="./Assets/javascript/scipt.js"></script>
 </body>

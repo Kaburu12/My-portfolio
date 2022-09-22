@@ -111,6 +111,11 @@ h1{
     align-items: center;
 }
 
+.slideshow a img{
+width: 100%;
+height: max-content;
+}
+
 .back,
 .forward {
     cursor: pointer;

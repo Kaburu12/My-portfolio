@@ -37,3 +37,11 @@ emailIcon.addEventListener("click", click2)
 function click2() {
   alert("My Email : Kabururm@gmail.com")
 }
+
+//onclick on the hire button
+const hire = document.getElementsByClassId('hire');
+emailIcon.addEventListener("click", click3)
+function click3(){
+  alert(`${"CALL : +254796225100"} \n ${"My Email : Kabururm@gmail.com"}` );
+
+}

@@ -10,7 +10,7 @@ const applyTheme = (theme) => {
   themeIcon.textContent = theme === 'dark' ? '☀' : '☾';
 };
 
-const saved = localStorage.getItem('mk-theme') || 'dark';
+const saved = localStorage.getItem('mk-theme') || 'light';
 applyTheme(saved);
 
 themeToggle.addEventListener('click', () => {

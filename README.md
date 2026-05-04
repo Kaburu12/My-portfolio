@@ -31,6 +31,41 @@ git push
 ```
 The site is published via GitHub Pages and updates automatically on push.
 
+## Deployment — GitHub Pages
+
+Follow these steps to publish the portfolio on GitHub Pages:
+
+1. **Push your code to GitHub**
+   ```bash
+   git add .
+   git commit -m "your message"
+   git push origin master
+   ```
+
+2. **Go to your repository on GitHub**
+   Navigate to: `https://github.com/Kaburu12/My-portfolio`
+
+3. **Open Settings**
+   Click the **Settings** tab at the top of the repository.
+
+4. **Go to Pages**
+   In the left sidebar, click **Pages** (under *Code and automation*).
+
+5. **Set the source branch**
+   Under *Build and deployment*, set:
+   - **Source:** `Deploy from a branch`
+   - **Branch:** `master` / `(root)`
+   - Click **Save**
+
+6. **Wait for deployment**
+   GitHub will build and deploy the site within 1–2 minutes. A green banner will appear with your live URL:
+   ```
+   https://kaburu12.github.io/My-portfolio/
+   ```
+
+7. **Subsequent updates**
+   Every `git push` to `master` automatically triggers a new deployment — no extra steps needed.
+
 ## Portfolio Screenshot
 
 ![Michael Kaburu Portfolio](./Assets/images/mk-portfolio2.png)

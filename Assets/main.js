@@ -36,20 +36,58 @@ const roles = [
 ];
 
 const rotatorEl = document.getElementById('rotator');
-let roleIdx = 0;
 
-function rotateRole() {
-  rotatorEl.style.opacity   = '0';
-  rotatorEl.style.transform = 'translateY(-10px)';
-  setTimeout(() => {
-    roleIdx = (roleIdx + 1) % roles.length;
-    rotatorEl.textContent     = roles[roleIdx];
-    rotatorEl.style.opacity   = '1';
-    rotatorEl.style.transform = 'translateY(0)';
-  }, 320);
+/* Typewriter effect — echoes the readme-typing-svg banner from the GitHub profile.
+   Types a phrase, holds, deletes, then advances to the next. */
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (prefersReducedMotion) {
+  /* Respect reduced-motion: just cycle text with a gentle fade */
+  let roleIdx = 0;
+  setInterval(() => {
+    rotatorEl.style.opacity = '0';
+    setTimeout(() => {
+      roleIdx = (roleIdx + 1) % roles.length;
+      rotatorEl.textContent = roles[roleIdx];
+      rotatorEl.style.opacity = '1';
+    }, 300);
+  }, 2800);
+} else {
+  rotatorEl.classList.add('typing');
+  let roleIdx = 0;
+  let charIdx = 0;
+  let deleting = false;
+
+  const TYPE_SPEED   = 55;   // ms per character typed
+  const DELETE_SPEED = 28;   // ms per character deleted
+  const HOLD_FULL    = 1500; // pause once fully typed
+  const HOLD_EMPTY   = 350;  // pause before next word
+
+  function tick() {
+    const word = roles[roleIdx];
+    rotatorEl.textContent = word.slice(0, charIdx);
+
+    if (!deleting) {
+      if (charIdx < word.length) {
+        charIdx++;
+        setTimeout(tick, TYPE_SPEED);
+      } else {
+        deleting = true;
+        setTimeout(tick, HOLD_FULL);
+      }
+    } else {
+      if (charIdx > 0) {
+        charIdx--;
+        setTimeout(tick, DELETE_SPEED);
+      } else {
+        deleting = false;
+        roleIdx = (roleIdx + 1) % roles.length;
+        setTimeout(tick, HOLD_EMPTY);
+      }
+    }
+  }
+  tick();
 }
-
-setInterval(rotateRole, 2800);
 
 /* ============================================================
    SCROLL REVEAL (Intersection Observer)

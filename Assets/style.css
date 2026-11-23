@@ -1006,3 +1006,88 @@ footer {
   .hero-scroll-hint { display: none; }
   .footer-inner  { flex-direction: column; gap: 4px; text-align: center; }
 }
+
+/* ============================================================
+   ICONS (Lucide) & MOBILE MENU
+   ============================================================ */
+.value-icon svg {
+  width: 24px;
+  height: 24px;
+  color: var(--accent);
+  stroke-width: 1.8;
+}
+.contact-icon svg.lucide { width: 18px; height: 18px; stroke-width: 2; }
+.btn svg.lucide { width: 16px; height: 16px; }
+
+.menu-toggle {
+  display: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  align-items: center;
+  justify-content: center;
+  color: var(--text-2);
+  transition: color var(--t), border-color var(--t);
+}
+.menu-toggle:hover { color: var(--text); border-color: var(--border-2); }
+.menu-toggle svg { width: 18px; height: 18px; }
+
+@media (max-width: 768px) {
+  .menu-toggle { display: inline-flex; }
+  .nav-actions { margin-left: auto; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: var(--nav-h);
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 8px 16px 16px;
+    gap: 2px;
+    background: var(--bg-2);
+    border-bottom: 1px solid var(--border-2);
+    box-shadow: var(--shadow);
+  }
+  .nav-links.open a { display: block; padding: 12px; font-size: 0.95rem; }
+}
+
+/* ============================================================
+   PROJECT CATEGORIES
+   ============================================================ */
+.project-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: -24px 0 40px;
+}
+.project-jump .chip { font-weight: 600; }
+.project-category { scroll-margin-top: calc(var(--nav-h) + 16px); }
+.project-category.first {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+/* ============================================================
+   EXPERIENCE — sub-headings, intro & tech stack
+   ============================================================ */
+.timeline-intro {
+  font-size: 0.875rem;
+  color: var(--text-2);
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+.timeline-subhead {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 18px 0 8px;
+}
+.timeline-points li strong { color: var(--text); font-weight: 600; }
+.timeline-stack { margin: 4px 0 14px; }
+.timeline-stack .chip { font-size: 0.72rem; padding: 3px 10px; }

@@ -1,4 +1,25 @@
 /* ============================================================
+   ICONS (Lucide via CDN — page still works if it fails to load)
+   ============================================================ */
+if (window.lucide && typeof window.lucide.createIcons === 'function') {
+  window.lucide.createIcons();
+}
+
+/* ============================================================
+   MOBILE MENU
+   ============================================================ */
+const menuToggle = document.getElementById('menuToggle');
+const navList    = document.getElementById('navLinks');
+const setMenu = (open) => {
+  navList.classList.toggle('open', open);
+  menuToggle.setAttribute('aria-expanded', String(open));
+  menuToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+};
+menuToggle.addEventListener('click', () => setMenu(!navList.classList.contains('open')));
+navList.addEventListener('click', (e) => { if (e.target.closest('a')) setMenu(false); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+
+/* ============================================================
    THEME TOGGLE
    ============================================================ */
 const html        = document.documentElement;
@@ -10,13 +31,14 @@ const applyTheme = (theme) => {
   themeIcon.textContent = theme === 'dark' ? '☀' : '☾';
 };
 
-const saved = localStorage.getItem('mk-theme') || 'light';
+let saved = 'light';
+try { saved = localStorage.getItem('mk-theme') || 'light'; } catch (e) { /* storage blocked */ }
 applyTheme(saved);
 
 themeToggle.addEventListener('click', () => {
   const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
   applyTheme(next);
-  localStorage.setItem('mk-theme', next);
+  try { localStorage.setItem('mk-theme', next); } catch (e) { /* storage blocked */ }
 });
 
 /* ============================================================
@@ -25,6 +47,8 @@ themeToggle.addEventListener('click', () => {
    ============================================================ */
 const roles = [
   'AI-driven finance systems',
+  'AI agents for tax & finance',
+  'tax technology adoption across Africa',
   'RAG-based tax assistants',
   'GenAI platforms at scale',
   'real-time forecasting pipelines',
@@ -137,7 +161,8 @@ const sectionObserver = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.4 }
+  /* a thin band across the middle of the viewport, so tall sections still register */
+  { rootMargin: '-45% 0px -50% 0px' }
 );
 sections.forEach((s) => sectionObserver.observe(s));
 
@@ -166,25 +191,33 @@ document.getElementById('shareEmail').addEventListener('click', () => {
     `mailto:?subject=${encodeURIComponent('Michael Kaburu — Portfolio')}&body=${encodeURIComponent(shareMsg + '\n\n' + siteUrl)}`;
 });
 
+const showCopied = () => {
+  const confirm = document.getElementById('copyConfirm');
+  confirm.classList.add('visible');
+  setTimeout(() => confirm.classList.remove('visible'), 2200);
+};
+const fallbackCopy = () => {
+  const ta = document.createElement('textarea');
+  ta.value = siteUrl;
+  ta.style.position = 'fixed';
+  ta.style.opacity  = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) { /* ignore */ }
+  document.body.removeChild(ta);
+  showCopied();
+};
+
 document.getElementById('copyLink').addEventListener('click', () => {
-  navigator.clipboard.writeText(siteUrl).then(() => {
-    const confirm = document.getElementById('copyConfirm');
-    confirm.classList.add('visible');
-    setTimeout(() => confirm.classList.remove('visible'), 2200);
-  }).catch(() => {
-    /* fallback for browsers without clipboard API */
-    const ta = document.createElement('textarea');
-    ta.value = siteUrl;
-    ta.style.position = 'fixed';
-    ta.style.opacity  = '0';
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand('copy');
-    document.body.removeChild(ta);
-    const confirm = document.getElementById('copyConfirm');
-    confirm.classList.add('visible');
-    setTimeout(() => confirm.classList.remove('visible'), 2200);
-  });
+  if (!navigator.clipboard) { fallbackCopy(); return; }
+  /* Some browsers leave the clipboard promise pending (permission prompts);
+     fall back after a short wait so the button always responds. */
+  let done = false;
+  const timer = setTimeout(() => { if (!done) { done = true; fallbackCopy(); } }, 800);
+  navigator.clipboard.writeText(siteUrl).then(
+    () => { if (!done) { done = true; clearTimeout(timer); showCopied(); } },
+    () => { if (!done) { done = true; clearTimeout(timer); fallbackCopy(); } }
+  );
 });
 
 /* ============================================================
